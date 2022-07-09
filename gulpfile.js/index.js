@@ -17,12 +17,12 @@ const path = require('./config/path');
 const config = require('./config/config');
 
 const watcher = ()=>{
-    gulp.watch(path.html.watch).on('all',browsersync.reload);
-    gulp.watch(path.scss.watch).on('all',browsersync.reload);
-    gulp.watch(path.css.watch).on('all',browsersync.reload);
-    gulp.watch(path.js.watch).on('all',browsersync.reload);
-    gulp.watch(path.image.watch).on('all',browsersync.reload);
-    gulp.watch(path.fonts.watch).on('all',browsersync.reload);
+    gulp.watch(path.html.watch,html).on('all',browsersync.reload);
+    gulp.watch(path.scss.watch,scss).on('all',browsersync.reload);
+    gulp.watch(path.css.watch,css).on('all',browsersync.reload);
+    gulp.watch(path.js.watch,js).on('all',browsersync.reload);
+    gulp.watch(path.image.watch,img).on('all',browsersync.reload);
+    gulp.watch(path.fonts.watch,fonts).on('all',browsersync.reload);
 };
 
 const server = ()=>{
