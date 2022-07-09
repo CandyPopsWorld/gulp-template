@@ -11,7 +11,7 @@ const scss = require('./tasks/scss');
 const server = require('./tasks/server');
 
 //Плагины
-const browsersync = require('browser-sync');
+const browsersync = require('browser-sync').create();
 
 //Конфигурация
 const path = require('./config/path');
