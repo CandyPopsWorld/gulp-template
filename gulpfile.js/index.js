@@ -8,24 +8,26 @@ const html = require('./tasks/html');
 const img = require('./tasks/image');
 const js = require('./tasks/js');
 const scss = require('./tasks/scss');
-const server = require('./tasks/server');
 
 //Плагины
-// const browsersync = require('browser-sync').create();
-const variable = require('./config/variable');
+const browsersync = require('browser-sync').create();
 
 //Конфигурация
 const path = require('./config/path');
+const config = require('./config/config');
 
 const watcher = ()=>{
-    gulp.watch(path.html.watch).on('all',variable.browsersync.reload);
-    gulp.watch(path.scss.watch).on('all',variable.browsersync.reload);
-    gulp.watch(path.css.watch).on('all',variable.browsersync.reload);
-    gulp.watch(path.js.watch).on('all',variable.browsersync.reload);
-    gulp.watch(path.image.watch).on('all',variable.browsersync.reload);
-    gulp.watch(path.fonts.watch).on('all', variable.browsersync.reload);
+    gulp.watch(path.html.watch).on('all',browsersync.reload);
+    gulp.watch(path.scss.watch).on('all',browsersync.reload);
+    gulp.watch(path.css.watch).on('all',browsersync.reload);
+    gulp.watch(path.js.watch).on('all',browsersync.reload);
+    gulp.watch(path.image.watch).on('all',browsersync.reload);
+    gulp.watch(path.fonts.watch).on('all',browsersync.reload);
 };
 
+const server = ()=>{
+    browsersync.init(config.server.browsersync);
+};
 
 const build = gulp.series(
     clear,
