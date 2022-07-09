@@ -14,7 +14,7 @@ const short = require('gulp-shorthand'); //Плагин для сокращен�
 const path = require('../config/path');
 
 const css = ()=>{
-    return gulp.src(path.css.src)
+    return gulp.src(path.css.src, {sourcemaps: true})
     .pipe(plumber({
         errorHandler: notify.onError(error => ({
             title: 'CSS',
